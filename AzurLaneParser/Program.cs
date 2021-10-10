@@ -59,7 +59,8 @@ namespace AzurLaneParser
             {
                 if (!File.Exists("data/" + file))
                 {
-                    Console.WriteLine("\n" + file + " is missing from /data folder, quitting");
+                    Console.WriteLine("\n" + file + " is missing from /data folder, quitting (Download files)");
+                    Console.ReadKey();
                     Environment.Exit(0);
                 }
             }
@@ -719,8 +720,8 @@ namespace AzurLaneParser
                             newSkill.SkillDesc = previousBuff.Replace("I:", "I (II):").Replace("Ⅰ:", "I (II):").Replace("times", "(" + part + ") times");
 
                             newSkill.SkillNameEN = newSkill.SkillNameEN.Replace("II", "").Replace("ⅠⅠ", "").Replace("Ⅱ", "").Replace(":","").Replace("-", " ").Trim();
-                            newSkill.SkillNameCN = newSkill.SkillNameCN.Replace("II", "").Replace("ⅠⅠ", "").Replace("Ⅱ", "").Replace(":", "").Trim();
-                            newSkill.SkillNameJP = newSkill.SkillNameJP.Replace("II", "").Replace("ⅠⅠ", "").Replace("Ⅱ", "").Replace(":", "").Trim();
+                            newSkill.SkillNameCN = newSkill.SkillNameCN.Replace("II", "").Replace("ⅠⅠ", "").Replace("Ⅱ", "").Trim();
+                            newSkill.SkillNameJP = newSkill.SkillNameJP.Replace("II", "").Replace("ⅠⅠ", "").Replace("Ⅱ", "").Trim();
 
                             if (retroReplaces.ContainsValue(int.Parse(sBuffID)))
                             {
@@ -1054,8 +1055,6 @@ namespace AzurLaneParser
                 }
 
             }
-            
-            Console.WriteLine();
 
 
         }
